@@ -12,8 +12,10 @@ public class Fibonacci {
 	
 	public static int fibonacci(int num, int[] memo) { // Fibonacci with memoisation
 		if (memo[num] != 0) return memo[num];
-		if (num == 0) return 0;
-		if (num == 1) return 1;
+		if (num <= 1) {
+			memo[num] = num;
+			return num;
+		}
 		
 		memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
 		return memo[num];
